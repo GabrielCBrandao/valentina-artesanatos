@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Valentina Artesanatos</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <div class="top-bar">
+    <span>♡ Feito à mão com amor para deixar sua vida mais bonita!</span>
+    <span>🚚 Frete fixo para todo o Brasil!</span>
+  </div>
+
+  <header class="header">
+    <a href="#" class="logo">
+      <span>Valentina</span>
+      <small>ARTESANATOS</small>
+    </a>
+
+    <button class="menu-btn" id="menuBtn">☰</button>
+
+    <nav class="nav" id="navMenu">
+      <a href="#inicio">Início</a>
+      <a href="#loja">Loja</a>
+      <a href="#categorias">Categorias</a>
+      <a href="#sobre">Sobre nós</a>
+      <a href="#contato">Contato</a>
+    </nav>
+
+    <div class="icons">
+      <button>🔍</button>
+      <button>👤</button>
+      <button class="cart">🛍️ <span id="cartCount">0</span></button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-text">
+        <p class="welcome">Seja bem-vindo! ♡</p>
+        <h1>Artesanatos que <span>encantam</span></h1>
+        <p>Peças únicas, feitas à mão com carinho para decorar, presentear e transformar momentos.</p>
+        <a href="#loja" class="btn">Conheça a loja ♡</a>
+      </div>
+
+      <div class="hero-image">
+        <img src="https://images.unsplash.com/photo-1610701596007-11502861dcfa?auto=format&fit=crop&w=900&q=80" alt="Artesanatos feitos à mão">
+      </div>
+    </section>
+
+    <section class="benefits">
+      <div>
+        <strong>♡ Feito à mão</strong>
+        <p>Cada peça é única e feita com amor.</p>
+      </div>
+      <div>
+        <strong>🎁 Embalagem especial</strong>
+        <p>Embalagens cuidadosas para encantar.</p>
+      </div>
+      <div>
+        <strong>🛡️ Compra segura</strong>
+        <p>Seus dados e pagamentos protegidos.</p>
+      </div>
+      <div>
+        <strong>🚚 Envio para todo o Brasil</strong>
+        <p>Com carinho e segurança.</p>
+      </div>
+    </section>
+
+    <section class="section" id="categorias">
+      <h2>Categorias</h2>
+
+      <div class="category-grid">
+        <article class="category-card">
+          <img src="https://images.unsplash.com/photo-1522758971460-1d21eed7dc1d?auto=format&fit=crop&w=600&q=80" alt="Decoração">
+          <span>Decoração</span>
+        </article>
+
+        <article class="category-card">
+          <img src="https://images.unsplash.com/photo-1596464716127-f2a82984de30?auto=format&fit=crop&w=600&q=80" alt="Amigurumis">
+          <span>Amigurumis</span>
+        </article>
+
+        <article class="category-card">
+          <img src="https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?auto=format&fit=crop&w=600&q=80" alt="Utilitários">
+          <span>Utilitários</span>
+        </article>
+
+        <article class="category-card">
+          <img src="https://images.unsplash.com/photo-1512909006721-3d6018887383?auto=format&fit=crop&w=600&q=80" alt="Presentes">
+          <span>Presentes</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="loja">
+      <h2>Produtos em destaque</h2>
+
+      <div class="product-grid" id="productGrid"></div>
+
+      <button class="outline-btn">Ver todos os produtos ›</button>
+    </section>
+
+    <section class="newsletter">
+      <div>
+        <h3>Receba novidades e inspirações!</h3>
+        <p>Cadastre-se e ganhe 10% de desconto na sua primeira compra.</p>
+      </div>
+
+      <form id="newsletterForm">
+        <input type="email" id="email" placeholder="Seu melhor e-mail" required>
+        <button type="submit">Quero receber! ♡</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer" id="contato">
+    <div>
+      <a href="#" class="logo footer-logo">
+        <span>Valentina</span>
+        <small>ARTESANATOS</small>
+      </a>
+      <p>Artesanatos feitos à mão com amor para decorar, presentear e transformar momentos especiais.</p>
+      <div class="social">Instagram • Facebook • Pinterest • WhatsApp</div>
+    </div>
+
+    <div>
+      <h4>Institucional</h4>
+      <a href="#">Sobre nós</a>
+      <a href="#">Política de Privacidade</a>
+      <a href="#">Trocas e Devoluções</a>
+      <a href="#">Perguntas Frequentes</a>
+    </div>
+
+    <div>
+      <h4>Atendimento</h4>
+      <a href="#">Contato</a>
+      <a href="#">Acompanhe seu pedido</a>
+      <a href="#">Formas de pagamento</a>
+      <a href="#">Prazo de envio</a>
+    </div>
+  </footer>
+
+  <div class="copyright">
+    © 2026 Valentina Artesanatos. Todos os direitos reservados. ♡
+  </div>
+</body>
+</html>
