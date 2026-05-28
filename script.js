@@ -157,7 +157,7 @@ function finalizarCompra() {
   mensagem += `💰 *Total: R$ ${formatCurrency(total)}*%0A%0A`;
   mensagem += 'Olá! Gostaria de finalizar este pedido.';
 
-  const telefone = '5521974089973';
+  const telefone = '5521972856635';
   const url = `https://wa.me/${telefone}?text=${mensagem}`;
 
   window.open(url, '_blank');
