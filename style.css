@@ -406,6 +406,126 @@ img {
   font-size: 14px;
 }
 
+/* CARRINHO */
+
+.cart-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(63, 43, 39, 0.45);
+  z-index: 999;
+  justify-content: flex-end;
+}
+
+.cart-modal.active {
+  display: flex;
+}
+
+.cart-content {
+  width: min(430px, 100%);
+  height: 100%;
+  background: var(--white);
+  padding: 28px;
+  overflow-y: auto;
+  box-shadow: var(--shadow);
+  animation: openCart 0.3s ease;
+}
+
+@keyframes openCart {
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+.close-cart {
+  background: var(--light-pink);
+  color: var(--brown);
+  padding: 8px 12px;
+  border-radius: 6px;
+  float: right;
+  font-weight: 700;
+}
+
+.cart-content h2 {
+  color: var(--brown);
+  margin-bottom: 24px;
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+}
+
+.empty-cart {
+  color: var(--muted);
+  background: var(--soft-pink);
+  padding: 18px;
+  border-radius: 10px;
+  line-height: 1.5;
+}
+
+.cart-item {
+  border-bottom: 1px solid #f0d9dc;
+  padding: 16px 0;
+}
+
+.cart-item h4 {
+  color: var(--brown);
+  margin-bottom: 6px;
+}
+
+.cart-item p {
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+.cart-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 12px 0;
+}
+
+.cart-actions button {
+  background: var(--pink);
+  color: white;
+  min-width: 34px;
+  height: 34px;
+  border-radius: 6px;
+  font-weight: 700;
+}
+
+.cart-actions span {
+  font-weight: 700;
+  color: var(--brown);
+}
+
+.remove-btn {
+  background: var(--brown) !important;
+  padding: 0 10px;
+}
+
+#cartTotal {
+  margin: 22px 0;
+  color: var(--brown);
+}
+
+.checkout-btn {
+  width: 100%;
+  background: var(--pink);
+  color: white;
+  padding: 14px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.checkout-btn:hover {
+  filter: brightness(0.95);
+  transform: translateY(-2px);
+}
+
 @media (max-width: 1050px) {
   .product-grid,
   .category-grid,
@@ -453,7 +573,9 @@ img {
   }
 
   .icons {
-    display: none;
+    width: 100%;
+    justify-content: center;
+    margin-top: 18px;
   }
 
   .hero {

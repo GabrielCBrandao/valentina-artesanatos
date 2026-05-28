@@ -32,7 +32,136 @@ const menuBtn = document.getElementById('menuBtn');
 const navMenu = document.getElementById('navMenu');
 const newsletterForm = document.getElementById('newsletterForm');
 
-let cart = 0;
+const cartButton = document.getElementById('cartButton');
+const cartModal = document.getElementById('cartModal');
+const closeCart = document.getElementById('closeCart');
+const cartItems = document.getElementById('cartItems');
+const cartTotal = document.getElementById('cartTotal');
+
+let cart = [];
+
+function formatPrice(price) {
+  return Number(
+    price
+      .replace('R$ ', '')
+      .replace(',', '.')
+  );
+}
+
+function formatCurrency(value) {
+  return value.toFixed(2).replace('.', ',');
+}
+
+function updateCart() {
+  cartItems.innerHTML = '';
+
+  if (cart.length === 0) {
+    cartItems.innerHTML = `
+      <p class="empty-cart">
+        Seu carrinho está vazio. Adicione produtos para finalizar sua compra.
+      </p>
+    `;
+
+    cartCount.textContent = 0;
+    cartTotal.textContent = 'Total: R$ 0,00';
+    return;
+  }
+
+  let total = 0;
+  let totalItems = 0;
+
+  cart.forEach((item, index) => {
+    const subtotal = formatPrice(item.price) * item.quantity;
+
+    total += subtotal;
+    totalItems += item.quantity;
+
+    const cartItem = document.createElement('div');
+    cartItem.classList.add('cart-item');
+
+    cartItem.innerHTML = `
+      <h4>${item.name}</h4>
+      <p>Preço: ${item.price}</p>
+
+      <div class="cart-actions">
+        <button onclick="decreaseQuantity(${index})">-</button>
+        <span>${item.quantity}</span>
+        <button onclick="increaseQuantity(${index})">+</button>
+        <button class="remove-btn" onclick="removeFromCart(${index})">Remover</button>
+      </div>
+
+      <strong>Subtotal: R$ ${formatCurrency(subtotal)}</strong>
+    `;
+
+    cartItems.appendChild(cartItem);
+  });
+
+  cartCount.textContent = totalItems;
+  cartTotal.textContent = `Total: R$ ${formatCurrency(total)}`;
+}
+
+function addToCart(product) {
+  const productExists = cart.find((item) => item.name === product.name);
+
+  if (productExists) {
+    productExists.quantity += 1;
+  } else {
+    cart.push({
+      ...product,
+      quantity: 1
+    });
+  }
+
+  updateCart();
+  alert(`${product.name} adicionado ao carrinho!`);
+}
+
+function increaseQuantity(index) {
+  cart[index].quantity += 1;
+  updateCart();
+}
+
+function decreaseQuantity(index) {
+  if (cart[index].quantity > 1) {
+    cart[index].quantity -= 1;
+  } else {
+    cart.splice(index, 1);
+  }
+
+  updateCart();
+}
+
+function removeFromCart(index) {
+  cart.splice(index, 1);
+  updateCart();
+}
+
+function finalizarCompra() {
+  if (cart.length === 0) {
+    alert('Seu carrinho está vazio. Adicione produtos para finalizar a compra.');
+    return;
+  }
+
+  let mensagem = '🛒 *Pedido Valentina Artesanatos*%0A%0A';
+  let total = 0;
+
+  cart.forEach((item) => {
+    const subtotal = formatPrice(item.price) * item.quantity;
+    total += subtotal;
+
+    mensagem += `🧶 Produto: ${item.name}%0A`;
+    mensagem += `Quantidade: ${item.quantity}%0A`;
+    mensagem += `Subtotal: R$ ${formatCurrency(subtotal)}%0A%0A`;
+  });
+
+  mensagem += `💰 *Total: R$ ${formatCurrency(total)}*%0A%0A`;
+  mensagem += 'Olá! Gostaria de finalizar este pedido.';
+
+  const telefone = '5521974089973';
+  const url = `https://wa.me/${telefone}?text=${mensagem}`;
+
+  window.open(url, '_blank');
+}
 
 products.forEach((product) => {
   const card = document.createElement('article');
@@ -44,14 +173,12 @@ products.forEach((product) => {
     <div class="product-info">
       <h3>${product.name}</h3>
       <strong>${product.price}</strong>
-      <button class="add-cart">Ver produto</button>
+      <button class="add-cart">Comprar</button>
     </div>
   `;
 
   card.querySelector('.add-cart').addEventListener('click', () => {
-    cart++;
-    cartCount.textContent = cart;
-    alert(`${product.name} adicionado ao carrinho!`);
+    addToCart(product);
   });
 
   card.querySelector('.favorite').addEventListener('click', (event) => {
@@ -59,6 +186,21 @@ products.forEach((product) => {
   });
 
   productGrid.appendChild(card);
+});
+
+cartButton.addEventListener('click', () => {
+  cartModal.classList.add('active');
+  updateCart();
+});
+
+closeCart.addEventListener('click', () => {
+  cartModal.classList.remove('active');
+});
+
+cartModal.addEventListener('click', (event) => {
+  if (event.target === cartModal) {
+    cartModal.classList.remove('active');
+  }
 });
 
 menuBtn.addEventListener('click', () => {
@@ -72,3 +214,5 @@ newsletterForm.addEventListener('submit', (event) => {
   alert(`Obrigado! O e-mail ${email} foi cadastrado com sucesso.`);
   newsletterForm.reset();
 });
+
+updateCart();
