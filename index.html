@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,6 +8,7 @@
   <link rel="stylesheet" href="style.css" />
   <script defer src="script.js"></script>
 </head>
+
 <body>
   <div class="top-bar">
     <span>♡ Feito à mão com amor para deixar sua vida mais bonita!</span>
@@ -14,8 +16,7 @@
 
   <header class="header">
     <a href="#" class="logo">
-      <span>Valentina</span>
-      <small>ARTESANATOS</small>
+      <img class="logoValentina" src="./assets/logo carol.jpeg" />
     </a>
 
     <button class="menu-btn" id="menuBtn">☰</button>
@@ -25,12 +26,10 @@
       <a href="#loja">Loja</a>
       <a href="#categorias">Categorias</a>
       <a href="#sobre">Sobre nós</a>
-      <a href="#contato">Contato</a>
+      <a href="https://api.whatsapp.com/send?phone=5521972856635">Contato</a>
     </nav>
 
     <div class="icons">
-      <button>🔍</button>
-      <button>👤</button>
       <button class="cart" id="cartButton">🛍️ <span id="cartCount">0</span></button>
     </div>
   </header>
@@ -45,7 +44,7 @@
       </div>
 
       <div class="hero-image">
-        <img src="https://images.unsplash.com/photo-1610701596007-11502861dcfa?auto=format&fit=crop&w=900&q=80" alt="Artesanatos feitos à mão">
+        <img src="./assets/pulseira.jpeg" alt="Artesanatos feitos à mão">
       </div>
     </section>
 
@@ -72,25 +71,69 @@
       <h2>Categorias</h2>
 
       <div class="category-grid">
-        <article class="category-card">
-          <img src="https://images.unsplash.com/photo-1522758971460-1d21eed7dc1d?auto=format&fit=crop&w=600&q=80" alt="Decoração">
-          <span>Decoração</span>
-        </article>
+        <div class="category-card" data-categoria="arcos">
+          <article class="category-card">
+          <img src="./assets/categorias/Arcos/Arco1.jpeg" alt="Arcos">
+          <span>Arcos</span>
+          </article>
+        </div>
 
-        <article class="category-card">
-          <img src="https://images.unsplash.com/photo-1596464716127-f2a82984de30?auto=format&fit=crop&w=600&q=80" alt="Amigurumis">
-          <span>Amigurumis</span>
-        </article>
+        <div class="category-card" data-categoria="brincos">
+          <article class="category-card">
+          <img src="./assets/categorias/Brincos/Brinco1.jpeg" alt="Brincos">
+          <span>Brincos</span>
+          </article>
+        </div>
 
-        <article class="category-card">
-          <img src="https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?auto=format&fit=crop&w=600&q=80" alt="Utilitários">
-          <span>Utilitários</span>
-        </article>
-
-        <article class="category-card">
-          <img src="https://images.unsplash.com/photo-1512909006721-3d6018887383?auto=format&fit=crop&w=600&q=80" alt="Presentes">
+        <div class="category-card" data-categoria="canetas">
+          <article class="category-card">
+          <img src="./assets/categorias/Caneta/Caneta2.jpeg" alt="Canetas">
+          <span>Canetas</span>
+          </article>
+        </div>
+        <div class="category-card" data-categoria="chaveiros">
+          <article class="category-card">
+          <img src="./assets/categorias/Chaveiros/Chaveiro1.jpeg" alt="Chaveiros">
+          <span>Chaveiros</span>
+          </article>
+        </div>
+        <div class="category-card" data-categoria="colares">
+          <article class="category-card">
+          <img src="./assets/categorias/Colar/Colar1.jpeg" alt="Colares">
+          <span>Colares</span>
+          </article>
+        </div>
+        <div class="category-card" data-categoria="junino">
+          <article class="category-card">
+          <img src="./assets/categorias/Junino/Junino1.jpeg" alt="Junino">
+          <span>Junino</span>
+          </article>
+        </div>
+        <div class="category-card" data-categoria="lacos">
+          <article class="category-card">
+          <img src="./assets/categorias/Laços/Laço1.jpeg" alt="Laços">
+          <span>Laços</span>
+          </article>
+        </div>
+        <div class="category-card" data-categoria="presentes">
+          <article class="category-card">
+          <img src="./assets/categorias/Presentes/Presentes1.jpeg" alt="Presentes">
           <span>Presentes</span>
-        </article>
+          </article>
+        </div>
+        <div class="category-card" data-categoria="pulseiras">
+          <article class="category-card">
+          <img src="./assets/categorias/Pulseiras/Pulseira1.jpeg" alt="Pulseiras">
+          <span>Pulseiras</span>
+          </article>
+        </div>
+        <div class="category-card" onclick="window.location.href='https://api.whatsapp.com/send?phone=5521972856635&text=Olá!%20Gostaria%20de%20personalizar%20uma%20peça.%20Vocês%20podem%20me%20ajudar?'">
+          <article class="category-card">
+          <img src="./assets/Personalize.png" alt="Pulseiras">
+          <span>Personalize aqui</span>
+          </article>
+        </div>
+     
       </div>
     </section>
 
@@ -99,33 +142,29 @@
 
       <div class="product-grid" id="productGrid"></div>
 
-      <button class="outline-btn">Ver todos os produtos ›</button>
+      <button class="outline-btn" id="viewAll">Ver todos os produtos ›</button>
     </section>
 
-    <section class="newsletter">
-      <div>
-        <h3>Receba novidades e inspirações!</h3>
-        <p>Cadastre-se e ganhe 10% de desconto na sua primeira compra.</p>
-      </div>
 
-      <form id="newsletterForm">
-        <input type="email" id="email" placeholder="Seu melhor e-mail" required>
-        <button type="submit">Quero receber! ♡</button>
-      </form>
-    </section>
   </main>
 
   <footer class="footer" id="contato">
     <div>
-      <a href="#" class="logo footer-logo">
-        <span>Valentina</span>
-        <small>ARTESANATOS</small>
+      <a href="#" class="logo">
+        <img class="logoValentina" src="./assets/logo carol.jpeg" />
       </a>
       <p>Artesanatos feitos à mão com amor para decorar, presentear e transformar momentos especiais.</p>
-      <div class="social">Instagram • Facebook • WhatsApp</div>
+      <div class="social">
+        <a href="https://www.instagram.com/valentinaartesanatos9?utm_source=qr&igsh=MWpnZWsza2FiZzA5dg%3D%3D">
+          <img class="social-icon" src="./assets/—Pngtree—instagram icon instagram logo vector_3584852.png" />
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=100083271376123">
+          <img class="social-icon" src="./assets/Facebook_Logo_2023.png" />
+        </a>
+      </div>
     </div>
 
-    <div>
+    <!-- <div>
       <h4>Institucional</h4>
       <a href="#">Sobre nós</a>
       <a href="#">Política de Privacidade</a>
@@ -139,12 +178,39 @@
       <a href="#">Acompanhe seu pedido</a>
       <a href="#">Formas de pagamento</a>
       <a href="#">Prazo de envio</a>
-    </div>
+    </div>-->
   </footer>
 
   <div class="copyright">
     © 2026 Valentina Artesanatos. Todos os direitos reservados. ♡
   </div>
+
+    <div class="cart-modal" id="cartModal">
+    <div class="cart-content">
+      <button class="close-cart" id="closeCart">X</button>
+
+      <h2>Meu carrinho</h2>
+
+      <div id="cartItems"></div>
+
+      <h3 id="cartTotal">Total: R$ 0,00</h3>
+
+      <button class="checkout-btn" onclick="finalizarCompra()">
+        Finalizar compra pelo WhatsApp
+      </button>
+    </div>
+  </div>
+
+  <div class="modal-categoria" id="modalCategoria">
+    <div class="modal-conteudo">
+      <button class="fechar-modal" id="fecharModal">×</button>
+
+      <h2 id="tituloCategoria"></h2>
+
+      <div class="produtos-categoria" id="produtosCategoria"></div>
+    </div>
+  </div>
+</body>
 
   <div class="cart-modal" id="cartModal">
     <div class="cart-content">
@@ -162,4 +228,5 @@
     </div>
   </div>
 </body>
+
 </html>
